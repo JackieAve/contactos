@@ -97,7 +97,7 @@ public class ContactosController {
 				
 			}
 			
-			System.err.println("call service listUser --> " + list.toString());
+			System.err.println("call Dao listUser --> " + list.toString());
 		
 		return map;
 	}
