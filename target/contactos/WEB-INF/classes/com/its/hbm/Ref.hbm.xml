@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/01/2018 12:40:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.its.entities.Ref" table="ref" catalog="mycontacs">
+        <id name="refId" type="java.lang.Integer">
+            <column name="REF_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.its.entities.User" fetch="select">
+            <column name="USERID" not-null="true" />
+        </many-to-one>
+        <property name="celular" type="string">
+            <column name="CELULAR" length="10" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

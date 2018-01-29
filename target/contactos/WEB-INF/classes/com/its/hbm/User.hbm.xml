@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/01/2018 12:40:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.its.entities.User" table="user" catalog="mycontacs">
+        <id name="userId" type="java.lang.Integer">
+            <column name="USER_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="10" not-null="true" />
+        </property>
+        <property name="lastname1" type="string">
+            <column name="LASTNAME1" not-null="true" />
+        </property>
+        <property name="lastname2" type="string">
+            <column name="LASTNAME2" not-null="true" />
+        </property>
+        <property name="estatus" type="int">
+            <column name="ESTATUS" not-null="true" />
+        </property>
+        <set name="departs" table="relation_dep_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.its.entities.Depart">
+                <column name="DEPT_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="refs" table="ref" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="com.its.entities.Ref" />
+        </set>
+        <set name="rols" table="relation_rol_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.its.entities.Rol">
+                <column name="ROL_ID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
