@@ -257,11 +257,12 @@
 				type : 'POST',
 				success : function(response) {
 					data = response.data;
+					$("#tbodyid").empty();
 					$('.tr').remove();
 					for (i = 0; i < response.data.length; i++) {
 						$("#table")
 						.append(
-								"<tbody> <tr>" 
+								"<tbody id='tbodyid'> <tr>" 
 								+"<td>" + response.data[i].name + " " + response.data[i].lastname1 + " " +  response.data[i].lastname2 + "</td>"
 								+"<td>" + response.data[i].celular + "</td>"
 								+"<td>" + response.data[i].direccion + "</td>"
