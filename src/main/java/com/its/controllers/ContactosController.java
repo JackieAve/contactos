@@ -53,7 +53,7 @@ public class ContactosController {
 				map.put("data", list);
 			}else{
 				map.put("status","404");
-				map.put("message","Data not found");
+				map.put("message","Data not found ");
 				
 			}
 				
