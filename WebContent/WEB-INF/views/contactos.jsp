@@ -256,7 +256,23 @@
 				url : 'listUser',
 				type : 'POST',
 				success : function(response) {
-					alert('termino');
+					data = response.data;
+					$('.tr').remove();
+					for (i = 0; i < response.data.length; i++) {
+						$("#table")
+						.append(
+								"<tbody> <tr>" 
+								+"<td>" + response.data[i].name + " " + response.data[i].lastname1 + " " +  response.data[i].lastname2 + "</td>"
+								+"<td>" + response.data[i].celular + "</td>"
+								+"<td>" + response.data[i].direccion + "</td>"
+								+"<td>" + response.data[i].departamento + "</td>"
+								+"<td>" + response.data[i].extencion + "</td>"
+								+"<td>" + response.data[i].tipoUsuario + "</td>"
+								+"<td> <a href='#' onclick= edit("+ response.data[i].userId + ");> <span class='glyphicon glyphicon-edit'></span></a></td>"
+								+"<td> <a href='#' onclick='delete_("+ response.data[i].userId + ");'> <span class='glyphicon glyphicon-remove-circle'></span></a></td>"
+								+ "</tr> </tbody>");
+					}
+					
 				}
 			});
 
